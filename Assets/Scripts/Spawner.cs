@@ -8,12 +8,17 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [Header("References")]
     public GameObject[] gameObjects;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    //오브젝트가 활성화 될때마다 호출되는 메서드
+    void OnEnable()
     {
         Invoke("Spawn", Random.Range(minSpawnDelay, maxSpawnDelay));
     }
 
+    void OnDisable()
+    {
+        CancelInvoke();
+    }
+    
     void Spawn()
     {
         GameObject randomObject = gameObjects[Random.Range(0, gameObjects.Length)];
