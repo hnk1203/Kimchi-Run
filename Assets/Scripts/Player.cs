@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) && isGrounded)
         {
             // PlayerRigidBody.linearVelocityX = 10;
             // PlayerRigidBody.linearVelocityY = 20;

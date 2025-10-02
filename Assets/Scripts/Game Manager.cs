@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
             scoreText.text = "High Score : " + GetHighScore();
         }
 
-        if (State == GameState.Intro && Input.GetKeyDown(KeyCode.Space))
+        if (State == GameState.Intro && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             State = GameState.Playing;
             IntroUI.SetActive(false);
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
             State = GameState.Dead;
   
         }
-        if (State == GameState.Dead && Input.GetKeyDown(KeyCode.Space))
+        if (State == GameState.Dead && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
         {
             SceneManager.LoadScene("main");
             SaveHighScore();
